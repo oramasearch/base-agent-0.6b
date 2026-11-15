@@ -1,4 +1,6 @@
 # syntax=docker/dockerfile:1.7
+# SPDX-License-Identifier: MIT
+
 #
 # The Orama base model as a model image (lake#246): the checkpoint under /model and a POSIX
 # shell, the contract of orama-operator's OramaZettaCluster spec.models (docs/zetta-models.md).

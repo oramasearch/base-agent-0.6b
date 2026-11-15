@@ -63,3 +63,14 @@ weights this image carries.
 ## Where it came from
 
 Moved out of zetta's `images/base-agent/` on 2026-10-23, so the image has a repository of its own.
+Moved out of zetta's `images/base-agent/` ([zetta#1344](https://github.com/oramasearch/zetta/pull/1344))
+on 2026-10-23: every image lives in its own private repository (umbrella `CLAUDE.md`, *Every service
+is its own private repo, with its own private image*). Pinned by
+[zetta-bridge](https://github.com/oramasearch/zetta-bridge) as `modules/base-agent-0.6b`.
+
+## License
+
+This repository's files are MIT, see [LICENSE](LICENSE). The model weights in the image are a
+fine-tune of Qwen3-0.6B and are under the Apache License 2.0; see [NOTICE](NOTICE). Third-party components and their licenses are in
+[THIRD_PARTY_LICENSES](THIRD_PARTY_LICENSES). Contributions are welcome under the Developer
+Certificate of Origin; see [CONTRIBUTING.md](CONTRIBUTING.md).
