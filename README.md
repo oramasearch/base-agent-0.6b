@@ -20,6 +20,11 @@ operator side is orama-operator's `docs/zetta-models.md`.
   `model.safetensors.index.json` and its shards), and the tokenizer (`tokenizer.json`, or
   `vocab.json` + `merges.txt`), plus whatever else the version folder has. The build fails if the
   required ones are missing.
+- **The files are exactly the recorded version** (base-agent-0.6b#2). [`checksums/`](checksums/README.md)
+  holds, per version, the Hub commit it is taken from (`<version>.revision`) and the SHA-256 of
+  every file (`<version>.sha256`). The build runs [`checksums/verify.sh`](checksums/verify.sh) and
+  fails on a changed, missing or extra file.
+- The base image is pinned by digest (`busybox:1.37@sha256:...`), so a moved tag cannot change it.
 - `/bin/sh` exists (busybox), because the operator's copy script runs in this image.
 - Every file is readable by uid 10001, the Zetta node's user.
 - **A tag is never moved.** The operator replaces the copy on a volume only when the image string
@@ -29,23 +34,36 @@ operator side is orama-operator's `docs/zetta-models.md`.
 
 ## Building a version
 
-The context is a directory with one folder, `checkpoint/`. Take the files from a zetta checkout's
-local checkpoint first (zetta's root `CLAUDE.md`, *Checkpoints live in `data/checkpoints/`*), and
-from the Hub only when they are not on disk:
+The context is a directory with two folders: `checkpoint/`, the version's files, and `checksums/`,
+copied from this repository. Take the files from a zetta checkout's local checkpoint first (zetta's
+root `CLAUDE.md`, *Checkpoints live in `data/checkpoints/`*), and from the Hub only when they are not
+on disk. Either way the build checks them against `checksums/<version>.sha256`, so a local copy that
+differs from the recorded version in any file fails the build; download it from the Hub instead.
 
 ```sh
+version=v16
 ctx=$(mktemp -d)
+cp -R checksums "$ctx/checksums"
 # local: the same files the Hub's v16/ folder holds
 cp -R <zetta>/data/checkpoints/base-agent-0.6b-interaction-v16 "$ctx/checkpoint"
-# or from the Hub (private; needs `hf auth login` with access to OramaSearch)
-#   hf download OramaSearch/base-agent-0.6b --include 'v16/*' --local-dir "$ctx/hub"
-#   mv "$ctx/hub/v16" "$ctx/checkpoint"
+# or from the Hub at the pinned revision (private; needs `hf auth login` with access to OramaSearch)
+#   hf download OramaSearch/base-agent-0.6b --revision "$(cat checksums/$version.revision)" \
+#     --include "$version/*" --local-dir "$ctx/hub"
+#   mv "$ctx/hub/$version" "$ctx/checkpoint"
+# optional, before the build: the same check the Dockerfile runs
+sh checksums/verify.sh "$ctx/checkpoint" "$ctx/checksums/$version.sha256"
 ```
 
 Images are built on the cluster BuildKit, never with Docker on the Mac (liquid-bridge decision 33;
 the `liquid-dev` skill has the lane): `buildctl build --frontend dockerfile.v0 --local
-context="$ctx" --local dockerfile=. --opt platform=linux/amd64 --output
+context="$ctx" --local dockerfile=. --opt platform=linux/amd64 --opt build-arg:VERSION=v16 --output
 type=image,name=docker.io/oramasearch/base-agent-0.6b:v16,push=true`.
+
+**A new version** adds `checksums/<version>.revision` and `checksums/<version>.sha256` first, as
+[`checksums/README.md`](checksums/README.md) says, and builds with `build-arg:VERSION=<version>`.
+
+`sh tests/verify_test.sh` tests the check: a changed byte, a missing or extra file and a malformed
+list all fail, every recorded version has a pinned revision, and the base image is pinned by digest.
 
 **Before the first push, create the Docker Hub repository private** (`POST /v2/repositories/` with
 `"is_private": true`): a first push creates it public. Afterwards an anonymous
