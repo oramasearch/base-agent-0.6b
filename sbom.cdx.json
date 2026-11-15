@@ -1,0 +1,75 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:df4c1dc2-becb-56e9-aac2-53cdeffa8fbc",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-11-15T17:25:56Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "tools/sbom.py"
+        },
+        {
+          "type": "application",
+          "name": "syft"
+        }
+      ]
+    },
+    "supplier": {
+      "name": "OramaSearch, Inc."
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "DocumentRoot",
+      "type": "library",
+      "name": "base-agent-0.6b",
+      "version": "9f29357a877f",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:docker/busybox@1.37?package-id=Image-busybox-5f9148d459171524",
+      "type": "library",
+      "name": "busybox",
+      "version": "1.37",
+      "purl": "pkg:docker/busybox@1.37",
+      "properties": [
+        {
+          "name": "syft:package:type",
+          "value": "UnknownPackage"
+        }
+      ]
+    },
+    {
+      "bom-ref": "Component-Qwen3-0.6B-757c0bf334e01603",
+      "type": "library",
+      "name": "Qwen3-0.6B",
+      "version": "NOASSERTION",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "DocumentRoot",
+      "dependsOn": [
+        "Component-Qwen3-0.6B-757c0bf334e01603",
+        "pkg:docker/busybox@1.37?package-id=Image-busybox-5f9148d459171524"
+      ]
+    }
+  ]
+}
