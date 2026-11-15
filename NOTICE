@@ -1,7 +1,7 @@
 base-agent-0.6b
-Copyright (c) 2026 Orama Search Inc.
+Copyright (c) 2026 OramaSearch, Inc.
 
-The image built from this repository contains model weights fine-tuned by Orama Search Inc. from
+The image built from this repository contains model weights fine-tuned by OramaSearch, Inc. from
 Qwen3-0.6B (Copyright 2024 Alibaba Cloud), which is licensed under the Apache License, Version 2.0.
 The weights are modified: they were further trained on Orama's own synthetic corpus. The modified
 weights are distributed under the Apache License, Version 2.0; its text and the base model's
