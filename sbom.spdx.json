@@ -3,16 +3,16 @@
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
   "name": "base-agent-0.6b-v0.1.0",
-  "documentNamespace": "https://github.com/oramasearch/base-agent-0.6b/sbom/7166bc25ca112ba8ef626cb48e326120667d1bd5",
+  "documentNamespace": "https://github.com/oramasearch/base-agent-0.6b/sbom/5b91c53604018b25da70caa24b3b78105c999fbd",
   "creationInfo": {
-    "created": "2026-11-16T08:27:31Z",
+    "created": "2026-11-16T08:34:03Z",
     "creators": [
       "Organization: OramaSearch, Inc.",
       "Tool: tools/sbom.py",
       "Tool: syft"
     ],
     "licenseListVersion": "3.29",
-    "comment": "Made from source commit 7166bc25ca112ba8ef626cb48e326120667d1bd5 by tools/sbom.py."
+    "comment": "Made from source commit 5b91c53604018b25da70caa24b3b78105c999fbd by tools/sbom.py."
   },
   "documentDescribes": [
     "SPDXRef-DocumentRoot"
