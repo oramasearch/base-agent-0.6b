@@ -2,17 +2,17 @@
   "spdxVersion": "SPDX-2.3",
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
-  "name": "base-agent-0.6b-2f56868642d5",
-  "documentNamespace": "https://github.com/oramasearch/base-agent-0.6b/sbom/2f56868642d5cd4f10f0199a787c696a2963de29",
+  "name": "base-agent-0.6b-47b7d18a471e",
+  "documentNamespace": "https://github.com/oramasearch/base-agent-0.6b/sbom/47b7d18a471e8fb15a1f7e8b2983e9f094a0f5d9",
   "creationInfo": {
-    "created": "2026-11-16T01:54:54Z",
+    "created": "2026-11-16T08:15:57Z",
     "creators": [
       "Organization: OramaSearch, Inc.",
       "Tool: tools/sbom.py",
       "Tool: syft"
     ],
     "licenseListVersion": "3.29",
-    "comment": "Made from source commit 2f56868642d5cd4f10f0199a787c696a2963de29 by tools/sbom.py."
+    "comment": "Made from source commit 47b7d18a471e8fb15a1f7e8b2983e9f094a0f5d9 by tools/sbom.py."
   },
   "documentDescribes": [
     "SPDXRef-DocumentRoot"
@@ -21,7 +21,7 @@
     {
       "name": "base-agent-0.6b",
       "SPDXID": "SPDXRef-DocumentRoot",
-      "versionInfo": "2f56868642d5",
+      "versionInfo": "47b7d18a471e",
       "downloadLocation": "git+https://github.com/oramasearch/base-agent-0.6b.git",
       "homepage": "https://github.com/oramasearch/base-agent-0.6b",
       "filesAnalyzed": false,
@@ -35,8 +35,8 @@
     },
     {
       "name": "busybox",
-      "SPDXID": "SPDXRef-Image-busybox-5f9148d459171524",
-      "versionInfo": "1.37",
+      "SPDXID": "SPDXRef-Image-busybox-fb2bf2b1ff21f83f",
+      "versionInfo": "1.37@sha256:a7dbc319b1438115a207e11930dc4bb3e643dcb3ec0bdd694bb36cd8fad289ec",
       "downloadLocation": "NOASSERTION",
       "filesAnalyzed": false,
       "supplier": "NOASSERTION",
@@ -44,12 +44,12 @@
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "NOASSERTION",
       "primaryPackagePurpose": "CONTAINER",
-      "comment": "Container base image (busybox:1.37), FROM in Dockerfile. Its own packages are in the image SBOM of each release image.",
+      "comment": "Container base image (busybox:1.37@sha256:a7dbc319b1438115a207e11930dc4bb3e643dcb3ec0bdd694bb36cd8fad289ec), FROM in Dockerfile. Its own packages are in the image SBOM of each release image.",
       "externalRefs": [
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:docker/busybox@1.37"
+          "referenceLocator": "pkg:docker/busybox@sha256%3Aa7dbc319b1438115a207e11930dc4bb3e643dcb3ec0bdd694bb36cd8fad289ec?tag=1.37"
         }
       ]
     },
@@ -79,7 +79,7 @@
       "spdxElementId": "SPDXRef-DOCUMENT"
     },
     {
-      "relatedSpdxElement": "SPDXRef-Image-busybox-5f9148d459171524",
+      "relatedSpdxElement": "SPDXRef-Image-busybox-fb2bf2b1ff21f83f",
       "relationshipType": "DEPENDS_ON",
       "spdxElementId": "SPDXRef-DocumentRoot"
     }
