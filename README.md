@@ -5,6 +5,10 @@
 model card [zetta `docs/agent/cards/models/base-agent.md`](https://github.com/oramasearch/zetta/blob/dev/docs/agent/cards/models/base-agent.md))
 into the image `oramasearch/base-agent-0.6b:<version>`, for example `:v16`.
 
+Released: [v0.1.0](docs/releases/v0.1.0.md) ([all releases](docs/releases/README.md)). The release
+version is in [`VERSION`](VERSION); `python3 tools/test-version.py` checks that its notes exist, are
+indexed and are named here.
+
 **Why it exists:** a native agent created in lake without
 a model runs on the base model inside its workspace Zetta. The Orama operator gives every workspace
 Zetta this image as `spec.models[{name: base-agent}]`; an init container copies `/model` to
@@ -63,10 +67,7 @@ weights this image carries.
 ## Where it came from
 
 Moved out of zetta's `images/base-agent/` on 2026-10-23, so the image has a repository of its own.
-Moved out of zetta's `images/base-agent/` ([zetta#1344](https://github.com/oramasearch/zetta/pull/1344))
-on 2026-10-23: every image lives in its own private repository (umbrella `CLAUDE.md`, *Every service
-is its own private repo, with its own private image*). Pinned by
-[zetta-bridge](https://github.com/oramasearch/zetta-bridge) as `modules/base-agent-0.6b`.
+Pinned by [zetta-bridge](https://github.com/oramasearch/zetta-bridge) as `modules/base-agent-0.6b`.
 
 ## License
 
