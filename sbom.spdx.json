@@ -1,0 +1,87 @@
+{
+  "spdxVersion": "SPDX-2.3",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "name": "base-agent-0.6b-v0.1.0",
+  "documentNamespace": "https://github.com/oramasearch/base-agent-0.6b/sbom/7166bc25ca112ba8ef626cb48e326120667d1bd5",
+  "creationInfo": {
+    "created": "2026-11-16T08:27:31Z",
+    "creators": [
+      "Organization: OramaSearch, Inc.",
+      "Tool: tools/sbom.py",
+      "Tool: syft"
+    ],
+    "licenseListVersion": "3.29",
+    "comment": "Made from source commit 7166bc25ca112ba8ef626cb48e326120667d1bd5 by tools/sbom.py."
+  },
+  "documentDescribes": [
+    "SPDXRef-DocumentRoot"
+  ],
+  "packages": [
+    {
+      "name": "base-agent-0.6b",
+      "SPDXID": "SPDXRef-DocumentRoot",
+      "versionInfo": "v0.1.0",
+      "downloadLocation": "git+https://github.com/oramasearch/base-agent-0.6b.git",
+      "homepage": "https://github.com/oramasearch/base-agent-0.6b",
+      "filesAnalyzed": false,
+      "supplier": "Organization: OramaSearch, Inc.",
+      "originator": "Organization: OramaSearch, Inc.",
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "Copyright (c) 2026 OramaSearch, Inc.",
+      "primaryPackagePurpose": "SOURCE",
+      "comment": "The source tree of base-agent-0.6b. Packages found by syft in the files git tracks, plus the C and C++ components of THIRD_PARTY_LICENSES and the git submodules."
+    },
+    {
+      "name": "busybox",
+      "SPDXID": "SPDXRef-Image-busybox-fb2bf2b1ff21f83f",
+      "versionInfo": "1.37@sha256:a7dbc319b1438115a207e11930dc4bb3e643dcb3ec0bdd694bb36cd8fad289ec",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "supplier": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "primaryPackagePurpose": "CONTAINER",
+      "comment": "Container base image (busybox:1.37@sha256:a7dbc319b1438115a207e11930dc4bb3e643dcb3ec0bdd694bb36cd8fad289ec), FROM in Dockerfile. Its own packages are in the image SBOM of each release image.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:docker/busybox@sha256%3Aa7dbc319b1438115a207e11930dc4bb3e643dcb3ec0bdd694bb36cd8fad289ec?tag=1.37"
+        }
+      ]
+    },
+    {
+      "name": "Qwen3-0.6B",
+      "SPDXID": "SPDXRef-Component-Qwen3-0.6B-757c0bf334e01603",
+      "versionInfo": "NOASSERTION",
+      "downloadLocation": "https://huggingface.co/Qwen/Qwen3-0.6B",
+      "filesAnalyzed": false,
+      "supplier": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "Apache-2.0",
+      "comment": "How it is used: base model; the image's weights are a fine-tune of it. Listed in THIRD_PARTY_LICENSES.",
+      "homepage": "https://huggingface.co/Qwen/Qwen3-0.6B"
+    }
+  ],
+  "relationships": [
+    {
+      "relatedSpdxElement": "SPDXRef-Component-Qwen3-0.6B-757c0bf334e01603",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-DocumentRoot"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-DocumentRoot",
+      "relationshipType": "DESCRIBES",
+      "spdxElementId": "SPDXRef-DOCUMENT"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Image-busybox-fb2bf2b1ff21f83f",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-DocumentRoot"
+    }
+  ]
+}
