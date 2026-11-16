@@ -72,5 +72,5 @@ is its own private repo, with its own private image*). Pinned by
 
 This repository's files are MIT, see [LICENSE](LICENSE). The model weights in the image are a
 fine-tune of Qwen3-0.6B and are under the Apache License 2.0; see [NOTICE](NOTICE). Third-party components and their licenses are in
-[THIRD_PARTY_LICENSES](THIRD_PARTY_LICENSES). Contributions are welcome under the Developer
-Certificate of Origin; see [CONTRIBUTING.md](CONTRIBUTING.md).
+[THIRD_PARTY_LICENSES](THIRD_PARTY_LICENSES). Contributions are welcome under the
+[Contributor License Agreement](CLA.md); see [CONTRIBUTING.md](CONTRIBUTING.md).
