@@ -20,7 +20,9 @@ operator side is orama-operator's `docs/zetta-models.md`.
   `model.safetensors.index.json` and its shards), and the tokenizer (`tokenizer.json`, or
   `vocab.json` + `merges.txt`), plus whatever else the version folder has. The build fails if the
   required ones are missing.
-- `/bin/sh` exists (busybox), because the operator's copy script runs in this image.
+- `/bin/sh` exists (busybox), because the operator's copy script runs in this image. The base is
+  `busybox:1.37` pinned by its multi-platform index digest (`sha256:a7dbc319…`, lake#1003), so a
+  moved tag cannot change it; moving it is a reviewed change of the digest.
 - Every file is readable by uid 10001, the Zetta node's user.
 - **A tag is never moved.** The operator replaces the copy on a volume only when the image string
   changes, so a new checkpoint is a new tag (`v17`), and the operator's default
