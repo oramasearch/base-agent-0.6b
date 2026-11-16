@@ -1,0 +1,10 @@
+base-agent-0.6b
+Copyright (c) 2026 OramaSearch, Inc.
+
+The image built from this repository contains model weights fine-tuned by OramaSearch, Inc. from
+Qwen3-0.6B (Copyright 2024 Alibaba Cloud), which is licensed under the Apache License, Version 2.0.
+The weights are modified: they were further trained on Orama's own synthetic corpus. The modified
+weights are distributed under the Apache License, Version 2.0; its text and the base model's
+notice are in THIRD_PARTY_LICENSES.
+
+The image also contains BusyBox, unmodified, under the GNU General Public License, version 2.

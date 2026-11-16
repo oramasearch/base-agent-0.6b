@@ -1,0 +1,75 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:67ac436c-2422-5614-a916-6506e0519603",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-11-16T08:15:57Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "tools/sbom.py"
+        },
+        {
+          "type": "application",
+          "name": "syft"
+        }
+      ]
+    },
+    "supplier": {
+      "name": "OramaSearch, Inc."
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "DocumentRoot",
+      "type": "library",
+      "name": "base-agent-0.6b",
+      "version": "47b7d18a471e",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:docker/busybox@sha256%3Aa7dbc319b1438115a207e11930dc4bb3e643dcb3ec0bdd694bb36cd8fad289ec?package-id=Image-busybox-fb2bf2b1ff21f83f&tag=1.37",
+      "type": "library",
+      "name": "busybox",
+      "version": "1.37@sha256:a7dbc319b1438115a207e11930dc4bb3e643dcb3ec0bdd694bb36cd8fad289ec",
+      "purl": "pkg:docker/busybox@sha256%3Aa7dbc319b1438115a207e11930dc4bb3e643dcb3ec0bdd694bb36cd8fad289ec?tag=1.37",
+      "properties": [
+        {
+          "name": "syft:package:type",
+          "value": "UnknownPackage"
+        }
+      ]
+    },
+    {
+      "bom-ref": "Component-Qwen3-0.6B-757c0bf334e01603",
+      "type": "library",
+      "name": "Qwen3-0.6B",
+      "version": "NOASSERTION",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "DocumentRoot",
+      "dependsOn": [
+        "Component-Qwen3-0.6B-757c0bf334e01603",
+        "pkg:docker/busybox@sha256%3Aa7dbc319b1438115a207e11930dc4bb3e643dcb3ec0bdd694bb36cd8fad289ec?package-id=Image-busybox-fb2bf2b1ff21f83f&tag=1.37"
+      ]
+    }
+  ]
+}
