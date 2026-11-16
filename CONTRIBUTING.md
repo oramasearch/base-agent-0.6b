@@ -26,7 +26,8 @@ cp -R /path/to/checkpoint "$ctx/checkpoint"
 docker build -f Dockerfile -t base-agent-0.6b:local "$ctx"
 ```
 
-There is no code and no test suite; the check is the `RUN test -f ...` step in the `Dockerfile`.
+There is no code to compile. The checks are the `RUN test -f ...` step in the `Dockerfile`, and
+`python3 tools/test-version.py`, which checks that the version in `VERSION` has its release notes.
 
 ## Making a change
 
